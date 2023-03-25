@@ -1,0 +1,70 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %} Teacher | Form  {% endblock %}
+{% block content %}
+
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">{{ model }}</h1>
+    <p class="mb-4">If there was a problem or need to upgrade your dashboard contact with developer</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add {{ model }}</h6>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-body">
+            <div class="table-responsive">
+
+                {{ form.as_p }}
+
+            </div>
+        <div class="my-2"></div>
+        <button type="submit" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-check"></i>
+            </span>
+            <span class="text">Save</span>
+
+        </button>
+
+        <a href="{% url 'aboutv' %}" class="btn btn-secondary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Return to list</span>
+        </a>
+        </div>
+
+    </form>
+
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+

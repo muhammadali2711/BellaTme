@@ -1,0 +1,71 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %} {{ model }} | List  {% endblock %}
+{% block content %}
+
+
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">{{ model }}</h1>
+    <p class="mb-4">If there was a problem or need to upgrade your dashboard contact with developer</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">All {{ model }}s</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for i in roots %}
+                        <tr>
+                            <td>{{ i.id }}</td>
+                            <td><a href="{% url 'part_one' pk=i.id %}">{{ i.company }}</a></td>
+                            <td class="td-actions">
+                                <a href="{% url 'part_one' pk=i.id %}" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                                    <i class="fas fa-user"></i>
+                                </a>
+                                <a href="{% url 'part_edit' pk=i.id %}" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="my-2"></div>
+        <a href="{% url 'part_add' %}" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-check"></i>
+            </span>
+            <span class="text">Add New</span>
+        </a>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
